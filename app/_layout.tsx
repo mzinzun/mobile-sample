@@ -1,37 +1,67 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
-import 'react-native-reanimated';
+import { Stack } from "expo-router";
 
-import { useColorScheme } from '@/hooks/useColorScheme';
+const RootLayer = () => {
+    return (
+        <Stack>
+        <Stack.Screen name="index"
+        options={{
+            headerTitle: "The Last Mile",
+            headerStyle: {
+                backgroundColor: "gold",
+            },
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+                fontWeight: "bold",
+            },
+        }}/>
+        <Stack.Screen name="Faq"
+        options={{
+            headerTitle: "Frequently Asked Questions",
+            headerStyle: {
+                backgroundColor: "gold",
+            },
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+                fontWeight: "bold",
+                fontSize: 40,
+            },
+        }}/>
+        <Stack.Screen name="Stories"
+        options={{
+            headerTitle: "TLM Success Stories",
+            headerStyle: {
+                backgroundColor: "gold",
+            },
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+                fontWeight: "bold",
+            },
+        }} />
+        <Stack.Screen name="About"
+        options={{
+            headerTitle: "About The Last Mile",
+            headerStyle: {
+                backgroundColor: "gold",
+            },
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+                fontWeight: "bold",
+            },
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
+        }} />
+        <Stack.Screen name="Apply"
+        options={{
+            headerTitle: "Enrollment Application",
+            headerStyle: {
+                backgroundColor: "gold",
+            },
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+                fontWeight: "bold",
+            },
+        }} />
+        </Stack>
+    );
+};
 
-export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-  });
-
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
-
-  if (!loaded) {
-    return null;
-  }
-
-  return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-    </ThemeProvider>
-  );
-}
+export default RootLayer;
