@@ -14,6 +14,9 @@ const About = () => {
     'Aileron-HeavyItalic': require('../assets/fonts/Aileron-HeavyItalic.otf'),
     'SpaceMono-Regular': require('../assets/fonts/SpaceMono-Regular.ttf'),
   });
+  if (!fontsLoaded) {
+    return null;
+  }
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>

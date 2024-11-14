@@ -1,13 +1,23 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, Alert, StyleSheet } from 'react-native';
+import { useRouter } from 'expo-router';
+
 
 const Apply = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
+  const router = useRouter();
 
   const handleSubmit = () => {
-    Alert.alert('Form Submitted', `Name: ${name}\nEmail: ${email}\nPhone: ${phone}`);
+    Alert.alert('Form Submitted', `Name: ${name}\nEmail: ${email}\nPhone: ${phone}`, [
+      {
+        text: 'OK',
+        onPress: () => router.push('/'),
+      },
+    ]);
+    // Alert.alert('Form Submitted', `Name: ${name}\nEmail: ${email}\nPhone: ${phone}`);
+    // router.push('./app/index');
   };
 
   return (

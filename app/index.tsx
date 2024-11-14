@@ -3,7 +3,7 @@ import React from 'react'
 import { Link } from 'expo-router'
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -55,11 +55,7 @@ const index = () => {
           </ImageBackground>
         </View>
       </View>
-      <TouchableOpacity style={styles.applyText} onPress={() => console.log('Apply')}>
-        <Text>Apply</Text>
-      </TouchableOpacity>
-
-        <Link href='/Apply' style={styles.applyText} ><Text>Apply</Text></Link>
+      <Link href='/Apply' style={styles.applyText} ><Text>Apply</Text></Link>
 
 
     </ImageBackground>
@@ -89,6 +85,8 @@ const styles = StyleSheet.create({
   },
   card: {
     flex: 1,
+    minWidth: '50%',
+    flexWrap: 'wrap',
     borderRadius: 15,
     overflow: 'hidden',
     backgroundColor: 'rgba(0,0,0,0.5)',
