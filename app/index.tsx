@@ -1,4 +1,4 @@
-import { View, Text, ImageBackground, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, ImageBackground, StyleSheet, TouchableOpacity, useWindowDimensions, ScrollView, SafeAreaView } from 'react-native'
 import React from 'react'
 import { Link } from 'expo-router'
 import { useFonts } from 'expo-font';
@@ -13,6 +13,8 @@ const index = () => {
     'Aileron-HeavyItalic': require('../assets/fonts/Aileron-HeavyItalic.otf'),
     'SpaceMono-Regular': require('../assets/fonts/SpaceMono-Regular.ttf'),
   });
+  const { width, height } = useWindowDimensions();
+  const isLandscape = width > height;
 
   useEffect(() => {
     async function prepare() {
@@ -35,10 +37,12 @@ const index = () => {
     return null;
   }
   return (
+    <SafeAreaView style={styles.container}>
     <ImageBackground style={styles.container} source={require('../assets/images/img1.jpeg')} >
       <Text style={styles.titleText}>Welcome To The Last Mile</Text>
 
-      <View style={styles.cardContainer}>
+      <View style={[styles.cardContainer, isLandscape ? styles.landscape : styles.portrait]}>
+
         <View style={styles.card}>
           <ImageBackground source={require('../assets/images/img8.jpeg')} style={styles.cardImage}>
             <Link href='/About' style={styles.cardText} ><Text style={{ margin: 10, }}>Learn About The Last Mile</Text></Link>
@@ -55,10 +59,12 @@ const index = () => {
           </ImageBackground>
         </View>
       </View>
+
       <Link href='/Apply' style={styles.applyText} ><Text>Apply</Text></Link>
 
 
     </ImageBackground>
+    </SafeAreaView>
   )
 }
 
@@ -73,23 +79,39 @@ const styles = StyleSheet.create({
     // alignContent: 'center',
   },
   cardContainer: {
-    overflow: 'hidden',
+    borderColor: 'red',
+    borderStyle: 'solid',
+    borderWidth: 2,
+    // overflow: 'hidden',
+    display: 'flex',
+    // alignItems: 'center',
+    gap: 20,
+    flexWrap: 'wrap',
+  },
+  landscape: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     width: '100%',
     height: '50%',
     paddingHorizontal: 40,
     paddingVertical: 20,
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
     gap: 20,
+  },
+  portrait: {
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    width: '100%',
+    height: '100%',
+    // alignContent: 'center',
+    // alignItems: 'center',
+    gap: 10,
   },
   card: {
     flex: 1,
-    minWidth: '50%',
-    flexWrap: 'wrap',
     borderRadius: 15,
-    overflow: 'hidden',
+    // overflow: 'hidden',
     backgroundColor: 'rgba(0,0,0,0.5)',
+
   },
   backgroundImage: {
     flex: 1,
@@ -102,8 +124,9 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     alignItems: 'center',
     // borderWidth: 2,
-    overflow: 'hidden',
+    // overflow: 'hidden',
     // borderRadius: 30,
+    width: '100%',
   },
   cardText: {
     // height: '100%',
