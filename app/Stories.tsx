@@ -26,7 +26,6 @@ const Stories = () => {
     ]
   return (
     <View style={styles.container}>
-      <Text>Stories Screen</Text>
       {/* use FlatList to render storyList */}
       <FlatList
         data={storyList}
@@ -43,8 +42,8 @@ export default Stories
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column',
-    borderWidth: 2,
+    // flexDirection: 'column',
+    borderWidth: 5,
     borderColor: 'blue',
     borderStyle: 'solid',
 
@@ -52,7 +51,7 @@ const styles = StyleSheet.create({
   storyContainer: {
 
     flexDirection: 'row',
-    borderWidth: 2,
+    borderWidth: 5,
     borderColor: 'purple',
     borderStyle: 'solid',
 

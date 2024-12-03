@@ -13,12 +13,14 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "newArchEnabled": true
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/IMG_0852.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#ffffff",
+        "newArchEnabled": true
       },
       "package": "com.mzinzun.mobilesample"
     },
@@ -39,8 +41,14 @@
         "origin": false
       },
       "eas": {
-        "projectId": "c715c805-0a44-4e54-ac6b-118bbf29e267"
+        "projectId": "fd154f10-c817-470f-8521-20aa5e152f5d"
       }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/fd154f10-c817-470f-8521-20aa5e152f5d"
     }
   }
 }

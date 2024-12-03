@@ -73,6 +73,9 @@ export default index
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    borderColor: 'green',
+    borderStyle: 'solid',
+    borderWidth: 2,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
@@ -104,7 +107,8 @@ const styles = StyleSheet.create({
     height: '100%',
     // alignContent: 'center',
     // alignItems: 'center',
-    gap: 10,
+    gap: 30,
+    paddingHorizontal: 5,
   },
   card: {
     flex: 1,
